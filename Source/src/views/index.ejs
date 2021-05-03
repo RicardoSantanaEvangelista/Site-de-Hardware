@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Home</title>
+
+   <style>
+       body{
+        background: rgb(89, 89, 235);
+        font: normal 15pt arial;
+       }
+
+       h1{
+        color: white;
+        text-align: center;
+
+       }
+
+       form{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        }
+       p.nome{
+        color: white;
+        text-align: center;
+       }
+
+       input.nomeDescri{
+        width: 400px;
+        height: 50px;
+        word-wrap: break-word;
+       }
+
+       input.button{
+        width: 350px;
+        padding: 15px 20px;
+        border-radius: 6px;
+        background-color: orange;
+        font-size: 18px;
+       }
+
+       p.containerP{
+        color: white;
+        text-align: center;
+       }
+
+       ul.container{
+        display: flex;
+        flex-direction: column;
+        color: white;
+        justify-content: center;
+        align-items: center;
+
+       }
+
+       li.container2{
+        color: white;
+        text-align: center;
+
+       }
+
+       a.container3{
+        color: white;
+        text-align: center;
+       }
+
+       input.preco{
+        width: 80px;
+        height: 27px;
+        word-wrap: break-word;
+       }
+       p.propa{
+        color: white;
+        text-align: center;
+       }
+
+
+   </style>
+
+</head>
+<body>
+
+    <h1> Home </h1>
+    <p class="propa">Deseja Guardar as informações do HARDWARE que deseja comprar ? </p>
+    <form action="/" method="POST"> 
+       <p class="nome" >Nome da Peça: <input  placeholder="Nome" type="text" name="nome"/></p>
+       <p class="nome">Conteudo: <input  placeholder="Salvar conteudo" type="text" name="conteudo"/></p>
+       <p class="nome">Preço: R$<input class="preco" placeholder="R$: 500,30" type="number" name="preco"/></p>
+        <p class="nome">Tipo do arquivo: <input  placeholder="[TXT, IMG, LINK]" type="text" name="tipo"/></p>
+        <p class="nome">Descrição: <input class="nomeDescri" placeholder="Essa placa de vídeo contém 8g de VRAM: " type="text" name="descricao"/></p>
+        <input class="button" type="submit" value="Adicionar"/> 
+    </form>
+
+    <% if(arquivos){ %>
+        <p class="containerP"> 
+            <ul class="container">  Arquivos: 
+                <% for(var i in arquivos){  %>
+                    <li class="container2"><a class="container3" href="http://localhost:3000/arquivo/<%= arquivos[i] %>"><%= arquivos[i] %></a></li>
+                <%}%>
+            </ul>
+        </p>
+    <% } %>
+    
+</body>
+</html>

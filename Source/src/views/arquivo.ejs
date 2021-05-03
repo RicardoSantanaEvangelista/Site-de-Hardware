@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Aquivo</title>
+
+    <style>
+        body{
+            background: rgb(89, 89, 235);
+            font: normal 20pt arial;
+       }
+
+       h1{
+        color: white;
+        text-align: center;
+       }
+
+       p.conteudo{
+        color: white;
+        text-align: center;
+        word-wrap: break-word;
+       }
+
+       img.imagem{
+        max-width:300px;
+        max-height:250px;
+        width: auto;
+        height: auto;
+        position:absolute;
+		left:43%;
+		top:55%;
+       }
+
+       a.button{
+        width: 350px;
+        padding: 15px 20px;
+        border-radius: 6px;
+        background-color: orange;
+        font-size: 18px;
+        max-width:600px;
+        max-height:600px;
+        width: auto;
+        height: auto;
+        position:absolute;
+		left:50%;
+		top:90%;
+       }
+
+       p.nome{
+        color: white;
+        text-align: center;
+       }
+
+       a.conteudo1{
+        color: white;
+        position: absolute;
+	    left: 20%;
+	    top: 50%
+       }
+
+       p.descricao{
+        color: white;
+        text-align: center;
+        word-wrap: break-word;
+       }
+
+       p.preco{
+        color: white;
+        text-align: center;
+
+       }
+
+
+
+    </style>
+
+</head>
+<body>
+
+    <% if(nome){ %>
+        <% if(tipo==="TXT"){ %>
+           <h1>Texto:</h1>
+           <p class="nome">Nome: <%- nome %>  </p>
+           <p class="preco">Preço: R$ <%- preco %></p>
+           <p class="descricao">Descrição: <%= descricao %></p>
+            <p class="conteudo"><%= conteudo %></p>
+           <a class="button" href="http://localhost:3000">Voltar</a>
+        <% }else{ %>
+            <% if(tipo ==="IMG") { %>
+               <h1>Imagem:</h1>
+               <p class="nome">Nome: <%- nome %>  </p>
+               <p class="preco">Preço: R$ <%- preco %></p>
+               <p class="descricao">Descrição: <%= descricao %></p>
+               <img  class="imagem" src=<%= conteudo %>> <br>
+               <a class="button" href="http://localhost:3000">Voltar</a>
+            <% }else{ %>
+               <% if(tipo === "LINK"){ %>
+                    <h1>Link</h1>
+                    <p class="nome">Nome: <%- nome %>  </p>
+                    <p class="preco">Preço: R$ <%- preco %></p>
+                    <p class="descricao">Descrição: <%= descricao %></p>
+                    <a  class="conteudo1" href=<%= conteudo %>> <%= conteudo %> </a>
+                    <a class="button" href="http://localhost:3000">Voltar</a>
+               <% }else {%>
+                     <h1>[Erro 404, Por Favor  escolher o tipo de arquivo Exem: TXT, IMG, LINK ou VÍDEO]</h1>   
+                     <a class="button" href="http://localhost:3000">Voltar</a>  
+               <%}%>   
+            <% } %>
+        <% } %>
+    <% } %>
+</body>
+</html>
